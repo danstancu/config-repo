@@ -1,0 +1,28 @@
+spring:
+  kafka:
+    bootstrap-servers: kafka-1:9092
+    consumer:
+      group-id: feed-server
+# Discovery Server Access
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE}
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: false
+info:
+  app:
+    name: feed-server
+    description: Publipad Online Communities
+    version: 1.0-SNAPSHOT
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: DEBUG
+    com.publipad.feed: DEBUG
