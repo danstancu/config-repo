@@ -16,22 +16,3 @@ logging:
         root: INFO
         org.springframework: DEBUG
         com.publipad.discovery: DEBUG
-        
-        discovery-2:
-            image: publipad/discovery-server:latest
-            ports:
-                - "23000:3000"
-            depends_on: 
-                - config-1
-            environment:
-                EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://discovery-1:3000/eureka/, http://discovery-3:3000/eureka/
-                CONFIG_SERVICE_URI: http://config-1:8888
-        discovery-3:
-            image: publipad/discovery-server:latest
-            ports:
-                - "33000:3000"
-            depends_on: 
-                - config-1
-            environment:
-                EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://discovery-1:3000/eureka/, http://discovery-2:3000/eureka/
-                CONFIG_SERVICE_URI: http://config-1:8888
