@@ -1,7 +1,5 @@
 # Discovery Server
 eureka:
-    instance:
-      hostname: ${EUREKA_SERVER__HOSTNAME}
     client:
       registerWithEureka: false
       fetchRegistry: false
